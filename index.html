@@ -1,1 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montfaucon (Lot) - Site Officiel & Vie Locale</title>
+    
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#1b4329">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Montfaucon">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2558/2558004.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #1b4329;
+            --darker-green: #12301c;
+            --accent-gold: #c5a86a;
+            --light-gold: #dfb76c;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --bg-light: #fdfbf7;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--primary-green);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--accent-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--light-gold);
+            opacity: 1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 550px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 8%;
+        }
+
+        .village-sign-overlay {
+            position: absolute;
+            left: 8%;
+            bottom: 10%;
+            background: #bfa37a;
+            border: 8px solid #5c4033;
+            border-radius: 4px;
+            padding: 20px 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            text-align: center;
+            transform: rotate(-1deg);
+        }
+
+        .village-sign-overlay::before, .village-sign-overlay::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            width: 15px;
+            height: 80px;
+            background: #4a3525;
+        }
+        .village-sign-overlay::before { left: 20px; }
+        .village-sign-overlay::after { right: 20px; }
+
+        .village-sign-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3e2723;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #3e2723;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .village-sign-sub {
+            font-size: 14px;
+            font-weight: 700;
+            color: #3e2723;
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            max-width: 800px;
+            background: rgba(18, 48, 28, 0.85);
+            padding: 40px;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            color: var(--text-light);
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-text p {
+            color: #e0e0e0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: #2b613c;
+            color: var(--text-light);
+            padding: 12px 28px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-main:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .essentiel-box {
+            border: 2px solid var(--accent-gold);
+            padding: 20px;
+            min-width: 240px;
+            background-color: rgba(11, 31, 18, 0.9);
+            text-align: center;
+        }
+
+        .essentiel-title {
+            color: var(--accent-gold);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .essentiel-date {
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .essentiel-event {
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .essentiel-link {
+            color: var(--text-light);
+            text-decoration: underline;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .essentiel-link:hover {
+            color: var(--light-gold);
+        }
+
+        /* --- VIE LOCALE & ASSOCIATIONS SECTION --- */
+        .main-section {
+            padding: 80px 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+            background-image: radial-gradient(rgba(27, 67, 41, 0.02) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--primary-green);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .column-title {
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--darker-green);
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #eef2f5;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-logo {
+            width: 70px;
+            height: 70px;
+            background-color: #f7f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 12px;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-name {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--darker-green);
+            margin-bottom: 5px;
+        }
+
+        .card-details {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            white-space: pre-line;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-card-primary {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-card-primary:hover {
+            background-color: var(--accent-gold);
+        }
+
+        .link-card-secondary {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            text-decoration: underline;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .link-card-secondary:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- PLANNING INTERACTIF --- */
+        .planning-section {
+            background-color: var(--darker-green);
+            color: white;
+            padding: 60px 40px;
+            margin-top: 40px;
+        }
+
+        .planning-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .planning-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .planning-header h2 {
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--light-gold);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .planning-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .planning-table th, .planning-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            white-space: nowrap;
+        }
+
+        .planning-table th {
+            background-color: rgba(0,0,0,0.2);
+            color: var(--light-gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .planning-table tr:hover {
+            background-color: rgba(255,255,255,0.06);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+
+        .badge-fetes { background-color: #e74c3c; color: white; }
+        .badge-patrimoine { background-color: #3498db; color: white; }
+        .badge-mairie { background-color: #2ecc71; color: white; }
+
+        /* --- FOOTER & MAP --- */
+        footer {
+            background-color: var(--darker-green);
+            border-top: 3px solid var(--accent-gold);
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .footer-map {
+            height: 250px;
+            background: #e5e3df;
+            position: relative;
+        }
+
+        .footer-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--light-gold);
+        }
+
+        .footer-text strong {
+            color: white;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- MODALS & PROMPTS PWA --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover { color: var(--text-dark); }
+
+        .pwa-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 9999;
+            width: 90%;
+            max-width: 400px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 5px solid var(--accent-gold);
+        }
+        
+        .pwa-prompt p { font-size: 12px; font-weight: 600; margin: 0; }
+        
+        .pwa-btn {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .ios-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; fill: #3498db; }
+
+        /* ==========================================
+           RESPONSIVE DESIGN SMARTPHONES
+           ========================================== */
+        @media (max-width: 900px) {
+            .grid-container, .footer-grid, .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            .hero {
+                justify-content: center;
+                padding: 20px;
+                height: auto;
+                min-height: 100vh;
+                flex-direction: column;
+            }
+            .village-sign-overlay {
+                position: relative;
+                left: auto;
+                bottom: auto;
+                margin-top: 80px;
+                margin-bottom: 40px;
+                display: inline-block;
+                transform: none;
+            }
+            .village-sign-overlay::before, .village-sign-overlay::after { display: none; }
+            .footer-info {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul { gap: 10px; }
+            nav ul li a { font-size: 10px; letter-spacing: 0.5px; }
+            .hero-content-wrapper { padding: 20px; width: 100%; }
+            .hero-text h1 { font-size: 24px; }
+            .hero-text p { font-size: 14px; }
+            .essentiel-box { min-width: 100%; margin-top: 10px; }
+            .main-section { padding: 40px 15px; }
+            .section-title { font-size: 20px; margin-bottom: 35px; }
+            .column-title { font-size: 16px; margin-bottom: 20px; }
+            .card { flex-direction: column; text-align: center; padding: 20px 15px; gap: 15px; }
+            .card-logo { margin: 0 auto; }
+            .card-actions { flex-direction: column; gap: 12px; width: 100%; }
+            .btn-card-primary { width: 100%; padding: 12px; font-size: 11px; }
+            .planning-section { padding: 40px 15px; }
+            .planning-header h2 { font-size: 18px; }
+            .planning-table th, .planning-table td { padding: 12px 14px; font-size: 12px; }
+            .modal-content { padding: 30px 20px; margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 100 100">
+                <path d="M40,20 Q45,10 55,15 Q65,10 62,25 Q75,35 65,50 Q55,55 45,45 Q35,40 40,20 Z" />
+                <path d="M45,45 L40,65 L50,60 L55,65 L50,48" stroke-width="2" />
+                <rect x="25" y="65" width="50" height="12" fill="none" stroke="var(--accent-gold)" stroke-width="3" rx="2"/>
+                <rect x="20" y="77" width="60" height="12" fill="none" stroke="var(--accent-gold)" stroke-width="3" rx="2"/>
+            </svg>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Découvrir</a></li>
+                <li><a href="#planning">Fêtes</a></li>
+                <li><a href="#associations">Assos</a></li>
+                <li><a href="#commerces">Commerces</a></li>
+                <li><a href="#mairie">Mairie</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="village-sign-overlay">
+            <div class="village-sign-title">MONTFAUCON</div>
+            <div class="village-sign-sub">( LOT )</div>
+            <div style="font-size: 18px; font-weight: 800; color: #3e2723; margin-top:5px; border-top: 1px dashed #3e2723; padding-top:4px;">BIENVENUE</div>
+            <div style="background:#3e2723; color:#bfa37a; border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-top:5px; font-size:14px;">46</div>
+        </div>
+
+        <div class="hero-content-wrapper">
+       
