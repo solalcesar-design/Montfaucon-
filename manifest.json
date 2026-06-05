@@ -1,0 +1,15 @@
+{
+  "name": "Montfaucon en Lot",
+  "short_name": "Montfaucon",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1b4329",
+  "theme_color": "#1b4329",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2558/2558004.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
