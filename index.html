@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Montfaucon">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2558/2558004.png">
+    <link class="apple-touch-icon" rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2558/2558004.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,10 +62,10 @@
             gap: 15px;
         }
 
-        .logo-svg {
-            width: 50px;
-            height: 50px;
-            fill: var(--accent-gold);
+        .logo-img {
+            height: 55px;
+            width: auto;
+            display: block;
         }
 
         nav ul {
@@ -641,12 +641,7 @@
 
     <header>
         <div class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 100 100">
-                <path d="M40,20 Q45,10 55,15 Q65,10 62,25 Q75,35 65,50 Q55,55 45,45 Q35,40 40,20 Z" />
-                <path d="M45,45 L40,65 L50,60 L55,65 L50,48" stroke-width="2" />
-                <rect x="25" y="65" width="50" height="12" fill="none" stroke="var(--accent-gold)" stroke-width="3" rx="2"/>
-                <rect x="20" y="77" width="60" height="12" fill="none" stroke="var(--accent-gold)" stroke-width="3" rx="2"/>
-            </svg>
+            <img src="./logo.png" class="logo-img" alt="Blason Montfaucon">
         </div>
         <nav>
             <ul>
@@ -665,4 +660,15 @@
             <div class="village-sign-title">MONTFAUCON</div>
             <div class="village-sign-sub">( LOT )</div>
             <div style="font-size: 18px; font-weight: 800; color: #3e2723; margin-top:5px; border-top: 1px dashed #3e2723; padding-top:4px;">BIENVENUE</div>
-            <div style="background:#3e2723; color:#bfa37a; border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-top:5px; font-size:14px;">46</di
+            <div style="background:#3e2723; color:#bfa37a; border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-top:5px; font-size:14px;">46</div>
+        </div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-text">
+                <h1>Découvrez<br>Montfaucon,<br>au cœur du Lot.</h1>
+                <p>Le charme de la pierre et l'esprit festif du Quercy.</p>
+                <a href="#planning" class="btn-main">Toutes les fêtes de l'été</a>
+            </div>
+            
+            <div class="essentiel-box">
+                <div 
