@@ -110,39 +110,35 @@
             position: absolute;
             left: 8%;
             bottom: 10%;
-            background: #bfa37a;
-            border: 8px solid #5c4033;
+            background-color: #e6dfd3; /* Couleur de la pierre calcaire du Lot */
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
+            background-size: auto, 6px 6px;
+            border: 10px solid #8c8070; /* Bordure aspect pierre taillée */
             border-radius: 4px;
-            padding: 20px 40px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            padding: 22px 42px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.45), inset 0 0 20px rgba(0,0,0,0.15);
             text-align: center;
-            transform: rotate(-1deg);
+            transform: rotate(-0.5deg);
         }
 
+        /* Suppression des anciens poteaux en bois pour faire un bloc de pierre massif */
         .village-sign-overlay::before, .village-sign-overlay::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            width: 15px;
-            height: 80px;
-            background: #4a3525;
+            display: none;
         }
-        .village-sign-overlay::before { left: 20px; }
-        .village-sign-overlay::after { right: 20px; }
 
         .village-sign-title {
             font-size: 24px;
             font-weight: 800;
-            color: #3e2723;
+            color: #32251a;
             letter-spacing: 2px;
-            border-bottom: 2px solid #3e2723;
+            border-bottom: 2px solid #32251a;
             padding-bottom: 5px;
             margin-bottom: 5px;
         }
         .village-sign-sub {
             font-size: 14px;
             font-weight: 700;
-            color: #3e2723;
+            color: #32251a;
         }
 
         .hero-content-wrapper {
@@ -659,16 +655,12 @@
         <div class="village-sign-overlay">
             <div class="village-sign-title">MONTFAUCON</div>
             <div class="village-sign-sub">( LOT )</div>
-            <div style="font-size: 18px; font-weight: 800; color: #3e2723; margin-top:5px; border-top: 1px dashed #3e2723; padding-top:4px;">BIENVENUE</div>
-            <div style="background:#3e2723; color:#bfa37a; border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-top:5px; font-size:14px;">46</div>
+            <div style="font-size: 18px; font-weight: 800; color: #32251a; margin-top:5px; border-top: 1px dashed #32251a; padding-top:4px;">BIENVENUE</div>
+            <div style="background:#32251a; color:#e6dfd3; border-radius:50%; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-top:5px; font-size:14px;">46</div>
         </div>
 
         <div class="hero-content-wrapper">
             <div class="hero-text">
                 <h1>Découvrez<br>Montfaucon,<br>au cœur du Lot.</h1>
                 <p>Le charme de la pierre et l'esprit festif du Quercy.</p>
-                <a href="#planning" class="btn-main">Toutes les fêtes de l'été</a>
-            </div>
-            
-            <div class="essentiel-box">
-                <div 
+                
