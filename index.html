@@ -106,53 +106,34 @@
             padding: 0 8%;
         }
 
-        .village-sign-overlay {
+                .village-sign-overlay {
             position: absolute;
             left: 8%;
             bottom: 10%;
-            background-color: #e6dfd3; /* Couleur de la pierre calcaire du Lot */
-            background-image: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0);
-            background-size: auto, 6px 6px;
-            border: 10px solid #8c8070; /* Bordure aspect pierre taillée */
-            border-radius: 4px;
+            /* Teinte pierre chaude de nos campagnes */
+            background-color: #dfd5c3; 
+            /* On remplace les points noirs par des reflets et ombres de facettes de pierre */
+            background-image: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%), 
+                linear-gradient(225deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.12) 25%, transparent 25%);
+            background-size: 35px 35px;
+            
+            /* Bordures asymétriques pour casser le côté "parfait" du rectangle et faire bloc de pierre brute */
+            border: 9px solid #a69886;
+            border-radius: 18px 8px 24px 10px / 12px 20px 9px 16px;
+            
             padding: 22px 42px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.45), inset 0 0 20px rgba(0,0,0,0.15);
+            /* Triple ombre : ombre portée au sol, ombre interne pour le relief, et sur-épaisseur 3D */
+            box-shadow: 
+                0 15px 35px rgba(0,0,0,0.45), 
+                inset 0 0 20px rgba(0,0,0,0.15),
+                4px 4px 0px #857867; 
+            
             text-align: center;
             transform: rotate(-0.5deg);
-        }
-
-        /* Suppression des anciens poteaux en bois pour faire un bloc de pierre massif */
-        .village-sign-overlay::before, .village-sign-overlay::after {
-            display: none;
-        }
-
-        .village-sign-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #32251a;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #32251a;
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-        }
-        .village-sign-sub {
-            font-size: 14px;
-            font-weight: 700;
-            color: #32251a;
-        }
-
-        .hero-content-wrapper {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            max-width: 800px;
-            background: rgba(18, 48, 28, 0.85);
-            padding: 40px;
-            border-radius: 4px;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--accent-gold);
-        }
+                }
+        
 
         .hero-text {
             flex: 1;
