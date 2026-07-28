@@ -67,19 +67,20 @@
         .hero {
             position: relative;
             min-height: 450px;
-            background-image: url('./hero-bg.jpg'); /* Ton image de fond */
+            background-image: url('./haut-Montfaucon.jpg'); 
             background-size: cover;
             background-position: center;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
-            padding: 40px 8%;
+            padding: 40px 5%;
+            gap: 30px;
         }
 
-        /* --- PANNEAU EN PIERRE AJUSTÉ --- */
+        /* --- PANNEAU EN PIERRE --- */
         .village-sign-overlay {
-            position: absolute;
-            left: 8%;
-            bottom: 8%;
+            position: relative;
             background-image: url('./ton-image.jpg'); 
             background-size: cover;
             background-position: center top; 
@@ -95,7 +96,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            background-color: #8c857b; /* Couleur de secours si pas d'image de pierre */
+            background-color: #8c857b; 
         }
 
         .village-sign-welcome {
@@ -137,7 +138,6 @@
         }
 
         .hero-content-wrapper {
-            margin-left: auto;
             background: rgba(255, 255, 255, 0.9);
             padding: 25px;
             border-radius: 8px;
@@ -392,80 +392,32 @@
         </div>
     </section>
 
-    <!-- SECTION CÔTÉ VISITEUR (RANGÉ PAR CLASSE) -->
+    <!-- SECTION CÔTÉ VISITEUR (RANGÉ PAR CLASSE, SANS EXEMPLES) -->
     <section class="main-section" id="vie-locale">
         <h2 class="section-title">Vie Locale, Commerces & Associations</h2>
 
         <!-- CATÉGORIE : HÔTELLERIE -->
         <div class="category-block">
             <h3 class="column-title">🏨 Hôtellerie & Hébergements</h3>
-            <div class="visitor-grid">
-                <div class="visitor-card">
-                    <img src="./logo-faucon.png" alt="Logo" class="card-logo-img">
-                    <div class="card-photo-wrapper">
-                        <img src="./faucon-huppe.jpg" alt="Le Faucon Huppé" class="card-photo">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-name">Le Faucon Huppé</h4>
-                        <p class="card-details">Hôtel & Chambres d'hôtes au cœur du village.</p>
-                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
-                    </div>
-                </div>
-            </div>
+            <div class="visitor-grid"></div>
         </div>
 
         <!-- CATÉGORIE : RESTAURANTS -->
         <div class="category-block">
             <h3 class="column-title">🍽️ Restaurants & Cafés</h3>
-            <div class="visitor-grid">
-                <div class="visitor-card">
-                    <img src="./logo-lion.png" alt="Logo" class="card-logo-img">
-                    <div class="card-photo-wrapper">
-                        <img src="./lion-dor.jpg" alt="Le Lion d'Or" class="card-photo">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-name">Le Lion d'Or</h4>
-                        <p class="card-details">Cuisine traditionnelle du Quercy.</p>
-                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
-                    </div>
-                </div>
-            </div>
+            <div class="visitor-grid"></div>
         </div>
 
         <!-- CATÉGORIE : ÉPICERIES -->
         <div class="category-block">
             <h3 class="column-title">🧺 Épiceries & Commerces</h3>
-            <div class="visitor-grid">
-                <div class="visitor-card">
-                    <img src="./logo-epicerie.png" alt="Logo" class="card-logo-img">
-                    <div class="card-photo-wrapper">
-                        <img src="./epicerie.jpg" alt="Épicerie du Centre" class="card-photo">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-name">Épicerie du Centre</h4>
-                        <p class="card-details">Produits locaux et alimentation générale.</p>
-                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
-                    </div>
-                </div>
-            </div>
+            <div class="visitor-grid"></div>
         </div>
 
         <!-- CATÉGORIE : ASSOCIATIONS -->
         <div class="category-block">
             <h3 class="column-title">👥 Associations</h3>
-            <div class="visitor-grid">
-                <div class="visitor-card">
-                    <img src="./logo-patrimoine.png" alt="Logo" class="card-logo-img">
-                    <div class="card-photo-wrapper">
-                        <img src="./patrimoine.jpg" alt="Amis du Patrimoine" class="card-photo">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-name">Amis du Patrimoine</h4>
-                        <p class="card-details">Préservation de l'histoire et des monuments de Montfaucon.</p>
-                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML de l\'association')">Voir la fiche</button>
-                    </div>
-                </div>
-            </div>
+            <div class="visitor-grid"></div>
         </div>
     </section>
 
