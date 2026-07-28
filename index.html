@@ -3,281 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montfaucon (Lot) - Site Officiel & Vie Locale</title>
-    
-    <!-- Configuration PWA & Apple iOS -->
-    <link rel="manifest" href="./manifest.json">
-    <meta name="theme-color" content="#1b4329">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Montfaucon">
-    <link class="apple-touch-icon" rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2558/2558004.png">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Montfaucon (Lot 46) - Vie Locale & Commerce</title>
     <style>
         :root {
-            --primary-green: #1b4329;
-            --darker-green: #12301c;
-            --accent-gold: #c5a86a;
-            --light-gold: #dfb76c;
-            --text-dark: #2c3e50;
-            --text-light: #ffffff;
-            --bg-light: #fdfbf7;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --primary-green: #2b3a2f;
+            --darker-green: #1a251c;
+            --accent-gold: #dcd4c6;
+            --stone-dark: #2b2118;
+            --stone-text: #1a1510;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            overflow-x: hidden;
+            background-color: #f4f6f8;
+            color: #333;
         }
 
         /* --- HEADER & NAVIGATION --- */
         header {
             background-color: var(--primary-green);
-            padding: 15px 40px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            color: white;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            height: 55px;
-            width: auto;
-            display: block;
+        .logo-header {
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 15px;
+            align-items: center;
         }
 
-        nav ul li a {
-            color: var(--text-light);
+        nav a {
+            color: white;
             text-decoration: none;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            opacity: 0.9;
+            font-size: 0.9rem;
         }
 
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--light-gold);
-            opacity: 1;
+        .btn-admin-login {
+            background-color: var(--stone-dark);
+            color: var(--accent-gold);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            height: 85vh;
-            min-height: 550px;
-            background-color: #1b4329;
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('./haut-Montfaucon.jpg');
-            background-position: center;
+            min-height: 450px;
+            background-image: url('./hero-bg.jpg'); /* Ton image de fond */
             background-size: cover;
-            background-repeat: no-repeat;
+            background-position: center;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            padding: 0 8%;
+            padding: 40px 8%;
         }
 
-.village-sign-overlay {
-    position: absolute;
-    left: 8%;
-    bottom: 8%;
-    
-    background-image: url('./ton-image.jpg'); 
-    background-size: cover;
-    background-position: center top; 
-    
-    border: 4px solid #2b2118;
-    border-radius: 6px;
-    padding: 18px 20px;  /* Réduit l'espace autour pour rétrécir la pierre */
-    max-width: 280px;    /* Limite la largeur du bloc en pierre */
-    width: 100%;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transform: rotate(-0.5deg);
-    z-index: 10;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.village-sign-welcome {
-    font-size: 15px;
-    font-weight: 800;
-    color: #1a1510;
-    letter-spacing: 1px;
-    background-color: #dcd4c6;
-    padding: 6px 12px;
-    border-radius: 3px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    text-align: center;
-    width: 100%;
-}
-
-.village-sign-sub {
-    font-size: 13px;
-    font-weight: 700;
-    color: #1a1510;
-    background-color: #dcd4c6;
-    padding: 4px 10px;
-    border-radius: 3px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-}
-
-.village-sign-dept {
-    background: #dcd4c6;
-    color: #1a1510;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 16px;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    border: 2px solid #1a1510;
-}
-        
-    
-        
-        .hero-content-wrapper {
+        /* --- PANNEAU EN PIERRE AJUSTÉ --- */
+        .village-sign-overlay {
+            position: absolute;
+            left: 8%;
+            bottom: 8%;
+            background-image: url('./ton-image.jpg'); 
+            background-size: cover;
+            background-position: center top; 
+            border: 4px solid var(--stone-dark);
+            border-radius: 6px;
+            padding: 18px 20px;
+            max-width: 280px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transform: rotate(-0.5deg);
+            z-index: 10;
             display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            max-width: 800px;
-            background: rgba(18, 48, 28, 0.85);
-            padding: 40px;
-            border-radius: 4px;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--accent-gold);
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background-color: #8c857b; /* Couleur de secours si pas d'image de pierre */
         }
 
-        .hero-text {
-            flex: 1;
+        .village-sign-welcome {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--stone-text);
+            letter-spacing: 1px;
+            background-color: var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            text-align: center;
+            width: 100%;
+        }
+
+        .village-sign-sub {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--stone-text);
+            background-color: var(--accent-gold);
+            padding: 4px 10px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .village-sign-dept {
+            background: var(--accent-gold);
+            color: var(--stone-text);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            border: 2px solid var(--stone-text);
+        }
+
+        .hero-content-wrapper {
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 400px;
         }
 
         .hero-text h1 {
-            color: var(--text-light);
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .hero-text p {
-            color: #e0e0e0;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: var(--darker-green);
+            margin-bottom: 10px;
         }
 
         .btn-main {
             display: inline-block;
-            background-color: #2b613c;
-            color: var(--text-light);
-            padding: 12px 28px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
+            margin-top: 15px;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 18px;
             text-decoration: none;
-            letter-spacing: 1px;
-            border-radius: 3px;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-weight: bold;
         }
 
-        .btn-main:hover {
-            background-color: var(--accent-gold);
-            transform: translateY(-2px);
-        }
-
-        .essentiel-box {
-            border: 2px solid var(--accent-gold);
-            padding: 20px;
-            min-width: 240px;
-            background-color: rgba(11, 31, 18, 0.9);
-            text-align: center;
-        }
-
-        .essentiel-title {
-            color: var(--accent-gold);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .essentiel-date {
-            color: var(--text-light);
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .essentiel-event {
-            color: var(--text-light);
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .essentiel-link {
-            color: var(--text-light);
-            text-decoration: underline;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .essentiel-link:hover {
-            color: var(--light-gold);
-        }
-
-        /* --- VIE LOCALE & ASSOCIATIONS SECTION --- */
+        /* --- SECTION VISITEUR PAR CATÉGORIES --- */
         .main-section {
-            padding: 80px 40px;
-            max-width: 1300px;
-            margin: 0 auto;
-            background-image: radial-gradient(rgba(27, 67, 41, 0.02) 1px, transparent 0);
-            background-size: 24px 24px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         .section-title {
@@ -286,408 +174,354 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 50px;
-            position: relative;
+            margin-bottom: 40px;
             color: var(--primary-green);
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-gold);
-            margin: 15px auto 0 auto;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+        .category-block {
+            margin-bottom: 40px;
         }
 
         .column-title {
-            font-size: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
+            font-size: 1.3rem;
             color: var(--darker-green);
-            border-left: 4px solid var(--accent-gold);
-            padding-left: 12px;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
         }
 
-        .card {
+        .visitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .visitor-card {
             background: #ffffff;
             border: 1px solid #eef2f5;
-            border-radius: 4px;
-            padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: var(--transition);
+            flex-direction: column;
         }
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
+        .visitor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        .card-logo {
-            width: 70px;
-            height: 70px;
-            background-color: #f7f9fa;
+        .card-logo-img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            padding: 12px;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            z-index: 2;
+            background-color: white;
         }
 
-        .card-info {
-            flex: 1;
+        .card-photo-wrapper {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .card-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
         }
 
         .card-name {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
-            text-transform: uppercase;
             color: var(--darker-green);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .card-details {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 8px;
-            white-space: pre-line;
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 12px;
-            margin-bottom: 12px;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 15px;
         }
 
         .btn-card-primary {
             background-color: var(--primary-green);
             color: white;
             border: none;
-            padding: 8px 16px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 2px;
+            padding: 8px 12px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-card-primary:hover {
-            background-color: var(--accent-gold);
-        }
-
-        .link-card-secondary {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-dark);
-            text-decoration: underline;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .link-card-secondary:hover {
-            color: var(--accent-gold);
-        }
-
-        /* --- PLANNING INTERACTIF --- */
-        .planning-section {
-            background-color: var(--darker-green);
-            color: white;
-            padding: 60px 40px;
-            margin-top: 40px;
-        }
-
-        .planning-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .planning-header {
+            font-weight: bold;
             text-align: center;
-            margin-bottom: 40px;
         }
 
-        .planning-header h2 {
-            font-size: 22px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--light-gold);
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .planning-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: rgba(255,255,255,0.03);
-        }
-
-        .planning-table th, .planning-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            white-space: nowrap;
-        }
-
-        .planning-table th {
-            background-color: rgba(0,0,0,0.2);
-            color: var(--light-gold);
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .planning-table tr:hover {
-            background-color: rgba(255,255,255,0.06);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 3px;
-        }
-
-        .badge-fetes { background-color: #e74c3c; color: white; }
-        .badge-patrimoine { background-color: #3498db; color: white; }
-        .badge-mairie { background-color: #2ecc71; color: white; }
-
-        /* --- FOOTER & MAP --- */
-        footer {
-            background-color: var(--darker-green);
-            border-top: 3px solid var(--accent-gold);
-            color: rgba(255,255,255,0.8);
-            font-size: 13px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .footer-map {
-            height: 250px;
-            background: #e5e3df;
-            position: relative;
-        }
-
-        .footer-info {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 15px;
-            border-left: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-icon {
-            width: 20px;
-            height: 20px;
-            fill: var(--light-gold);
-        }
-
-        .footer-text strong {
-            color: white;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- MODALS & PROMPTS PWA --- */
-        .modal {
-            display: none;
+        /* --- INTERFACE ADMIN OVERLAY --- */
+        #admin-panel {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 4px;
-            max-width: 600px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border-top: 4px solid var(--primary-green);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #999;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover { color: var(--text-dark); }
-
-        .pwa-prompt {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            color: #2c3e50;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background-color: var(--primary-green);
             z-index: 9999;
-            width: 90%;
-            max-width: 400px;
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            border-left: 5px solid var(--accent-gold);
-        }
-        
-        .pwa-prompt p { font-size: 12px; font-weight: 600; margin: 0; }
-        
-        .pwa-btn {
-            background: var(--primary-green);
+            overflow-y: auto;
             color: white;
+        }
+
+        .admin-header {
+            background-color: var(--darker-green);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .btn-close-admin {
+            background: var(--accent-gold);
+            color: black;
             border: none;
-            padding: 8px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: bold;
             cursor: pointer;
-            text-transform: uppercase;
-        }
-        
-        .ios-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; fill: #3498db; }
-
-        /* ==========================================
-           RESPONSIVE DESIGN SMARTPHONES
-           ========================================== */
-        @media (max-width: 900px) {
-            .grid-container, .footer-grid, .hero-content-wrapper {
-                grid-template-columns: 1fr;
-                flex-direction: column;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px 20px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-            .hero {
-                justify-content: center;
-                padding: 20px;
-                height: auto;
-                min-height: 100vh;
-                flex-direction: column;
-            }
-            .village-sign-overlay {
-                position: relative;
-                left: auto;
-                bottom: auto;
-                margin-top: 80px;
-                margin-bottom: 40px;
-                display: flex;
-                transform: none;
-            }
-            .footer-info {
-                border-left: none;
-                border-top: 1px solid rgba(255,255,255,0.1);
-            }
+            border-radius: 4px;
         }
 
-        @media (max-width: 600px) {
-            nav ul { gap: 10px; }
-            nav ul li a { font-size: 10px; letter-spacing: 0.5px; }
-            .hero-content-wrapper { padding: 20px; width: 100%; }
-            .hero-text h1 { font-size: 24px; }
-            .hero-text p { font-size: 14px; }
-            .essentiel-box { min-width: 100%; margin-top: 10px; }
-            .main-section { padding: 40px 15px; }
-            .section-title { font-size: 20px; margin-bottom: 35px; }
-            .column-title { font-size: 16px; margin-bottom: 20px; }
-            .card { flex-direction: column; text-align: center; padding: 20px 15px; gap: 15px; }
-            .card-logo { margin: 0 auto; }
-            .card-actions { flex-direction: column; gap: 12px; width: 100%; }
-            .btn-card-primary { width: 100%; padding: 12px; font-size: 11px; }
-            .planning-section { padding: 40px 15px; }
-            .planning-header h2 { font-size: 18px; }
-            .planning-table th, .planning-table td { padding: 12px 14px; font-size: 12px; }
-            .modal-content { padding: 30px 20px; margin: 0 10px; }
+        .admin-content {
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .admin-form-box {
+            background-color: #e3dec9;
+            color: var(--stone-text);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 3px solid var(--stone-dark);
+        }
+
+        .admin-form-box h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--stone-dark);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .admin-form-box label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .admin-form-box input, .admin-form-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit-admin {
+            margin-top: 25px;
+            width: 100%;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-submit-admin:hover {
+            background-color: var(--darker-green);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV BAR -->
+    <!-- NAVIGATION EN TÊTE -->
     <header>
-        <div class="logo-container">
-            <img src="./logo.png" class="logo-img" alt="Blason Montfaucon">
-        </div>
+        <div class="logo-header">Montfaucon (46)</div>
         <nav>
             <ul>
-                <li><a href="#" class="active">Accueil</a></li>
-                <li><a href="#">Découvrir</a></li>
-                <li><a href="#planning">Fêtes</a></li>
-                <li><a href="#associations">Assos</a></li>
-                <li><a href="#commerces">Commerces</a></li>
-                <li><a href="#mairie">Mairie</a></li>
+                <li><a href="#vie-locale">Vie Locale</a></li>
+                <li><button class="btn-admin-login" onclick="openAdmin()">Accès Admin</button></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- SECTION HERO & PANNEAU EN PIERRE -->
     <section class="hero">
-                <div class="village-sign-overlay">
+        <div class="village-sign-overlay">
             <div class="village-sign-welcome">BIENVENUE À MONTFAUCON</div>
             <div class="village-sign-sub">( LOT )</div>
             <div class="village-sign-dept">46</div>
+        </div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-text">
+                <h1>Bienvenue à<br>Montfaucon,<br>au cœur du Lot.</h1>
+                <p>Le charme de la pierre et l'esprit festif du Quercy.</p>
+                <a href="#vie-locale" class="btn-main">Découvrir les commerces</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CÔTÉ VISITEUR (RANGÉ PAR CLASSE) -->
+    <section class="main-section" id="vie-locale">
+        <h2 class="section-title">Vie Locale, Commerces & Associations</h2>
+
+        <!-- CATÉGORIE : HÔTELLERIE -->
+        <div class="category-block">
+            <h3 class="column-title">🏨 Hôtellerie & Hébergements</h3>
+            <div class="visitor-grid">
+                <div class="visitor-card">
+                    <img src="./logo-faucon.png" alt="Logo" class="card-logo-img">
+                    <div class="card-photo-wrapper">
+                        <img src="./faucon-huppe.jpg" alt="Le Faucon Huppé" class="card-photo">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-name">Le Faucon Huppé</h4>
+                        <p class="card-details">Hôtel & Chambres d'hôtes au cœur du village.</p>
+                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
+                    </div>
                 </div>
-        
-  
+            </div>
+        </div>
+
+        <!-- CATÉGORIE : RESTAURANTS -->
+        <div class="category-block">
+            <h3 class="column-title">🍽️ Restaurants & Cafés</h3>
+            <div class="visitor-grid">
+                <div class="visitor-card">
+                    <img src="./logo-lion.png" alt="Logo" class="card-logo-img">
+                    <div class="card-photo-wrapper">
+                        <img src="./lion-dor.jpg" alt="Le Lion d'Or" class="card-photo">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-name">Le Lion d'Or</h4>
+                        <p class="card-details">Cuisine traditionnelle du Quercy.</p>
+                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATÉGORIE : ÉPICERIES -->
+        <div class="category-block">
+            <h3 class="column-title">🧺 Épiceries & Commerces</h3>
+            <div class="visitor-grid">
+                <div class="visitor-card">
+                    <img src="./logo-epicerie.png" alt="Logo" class="card-logo-img">
+                    <div class="card-photo-wrapper">
+                        <img src="./epicerie.jpg" alt="Épicerie du Centre" class="card-photo">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-name">Épicerie du Centre</h4>
+                        <p class="card-details">Produits locaux et alimentation générale.</p>
+                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML du commerce')">Voir la fiche</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATÉGORIE : ASSOCIATIONS -->
+        <div class="category-block">
+            <h3 class="column-title">👥 Associations</h3>
+            <div class="visitor-grid">
+                <div class="visitor-card">
+                    <img src="./logo-patrimoine.png" alt="Logo" class="card-logo-img">
+                    <div class="card-photo-wrapper">
+                        <img src="./patrimoine.jpg" alt="Amis du Patrimoine" class="card-photo">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-name">Amis du Patrimoine</h4>
+                        <p class="card-details">Préservation de l'histoire et des monuments de Montfaucon.</p>
+                        <button class="btn-card-primary" onclick="alert('Lien vers la page HTML de l\'association')">Voir la fiche</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANNEAU D'ADMINISTRATION (CACHÉ PAR DÉFAUT) -->
+    <div id="admin-panel" style="display: none;">
+        <div class="admin-header">
+            <h2>PANNEAU D'ADMINISTRATION COMMERCIAL (NON-SÉCURISÉ)</h2>
+            <button onclick="closeAdmin()" class="btn-close-admin">Fermer</button>
+        </div>
+
+        <div class="admin-content">
+            <div class="admin-form-box">
+                <h3>+ RAJOUTER UN COMMERCE OU ASSOCIATION</h3>
+                <form onsubmit="event.preventDefault(); alert('Ajout réussi ! (Connexion BDD prévue plus tard)');">
+                    <label>Nom du commerce / asso :</label>
+                    <input type="text" placeholder="Ex: Le Lion d'Or" required>
+
+                    <label>Catégorie (Classe) :</label>
+                    <select required>
+                        <option value="hotellerie">Hôtellerie / Hôtel</option>
+                        <option value="restaurant">Restaurant / Café</option>
+                        <option value="epicerie">Épicerie / Boutique</option>
+                        <option value="association">Association</option>
+                    </select>
+
+                    <label>Lien de la page HTML :</label>
+                    <input type="text" placeholder="Ex: lion-dor.html" required>
+
+                    <label>Lien de l'image du Logo :</label>
+                    <input type="text" placeholder="Ex: ./img/logo-lion.png" required>
+
+                    <label>Lien de la photo d'aperçu (Façade) :</label>
+                    <input type="text" placeholder="Ex: ./img/facade-lion.jpg" required>
+
+                    <button type="submit" class="btn-submit-admin">ENREGISTRER</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT JS ADMIN -->
+    <script>
+        function openAdmin() {
+            let identifiant = prompt("Identifiant :");
+            let motDePasse = prompt("Mot de passe :");
+
+            if (identifiant === "admin" && motDePasse === "admin123") {
+                document.getElementById('admin-panel').style.display = 'block';
+            } else {
+                alert("Identifiant ou mot de passe incorrect.");
+            }
+        }
+
+        function closeAdmin() {
+            document.getElementById('admin-panel').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
