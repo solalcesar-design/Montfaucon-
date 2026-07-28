@@ -108,76 +108,66 @@
             padding: 0 8%;
         }
 
-        /* --- PANNEAU EN PIERRE --- */
-        .village-sign-overlay {
-            position: absolute;
-            left: 8%;
-            bottom: 10%;
-            
-            /* Image du mur en pierre */
-            background-image: url('./ton-image.jpg'); 
-            background-size: cover;
-            background-position: center top; 
-            
-            border: 4px solid #2b2118;
-            border-radius: 4px;
-            padding: 30px 45px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            transform: rotate(-0.5deg);
-            z-index: 10;
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
+.village-sign-overlay {
+    position: absolute;
+    left: 8%;
+    bottom: 5%;
+    
+    background-image: url('./ton-image.jpg'); 
+    background-size: cover;
+    background-position: center top; 
+    
+    border: 5px solid #2b2118;
+    border-radius: 6px;
+    padding: 50px 70px;
+    min-width: 340px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    transform: rotate(-0.5deg);
+    z-index: 10;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 
-        .village-sign-title {
-            font-size: 26px;
-            font-weight: 800;
-            color: #1a1510;
-            letter-spacing: 2px;
-            background-color: #dcd4c6;
-            padding: 8px 20px;
-            border-radius: 3px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
+.village-sign-welcome {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1510;
+    letter-spacing: 2px;
+    background-color: #dcd4c6;
+    padding: 10px 25px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    text-align: center;
+}
 
-        .village-sign-sub {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1510;
-            background-color: #dcd4c6;
-            padding: 5px 15px;
-            border-radius: 3px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
+.village-sign-sub {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1510;
+    background-color: #dcd4c6;
+    padding: 6px 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
 
-        .village-sign-welcome {
-            font-size: 18px;
-            font-weight: 800;
-            color: #1a1510;
-            background-color: #dcd4c6;
-            padding: 6px 15px;
-            border-radius: 3px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
-
-        .village-sign-dept {
-            background: #dcd4c6;
-            color: #1a1510;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 18px;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-            border: 2px solid #1a1510;
-        }
-
+.village-sign-dept {
+    background: #dcd4c6;
+    color: #1a1510;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 22px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    border: 2px solid #1a1510;
+}
+        
         .hero-content-wrapper {
             display: flex;
             align-items: flex-start;
@@ -690,5 +680,10 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="village-sign-overlay">
+                <div class="village-sign-overlay">
+            <div class="village-sign-welcome">BIENVENUE À MONTFAUCON</div>
+            <div class="village-sign-sub">( LOT )</div>
+            <div class="village-sign-dept">46</div>
+                </div>
+        
   
