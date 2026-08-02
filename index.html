@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Montfaucon (Lot 46) - Vie Locale & Commerce</title>
+    
+    <!-- AJOUTS OBLIGATOIRES POUR TÉLÉCHARGER LA PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2b3a2f">
+    <link rel="apple-touch-icon" href="./ton-image.jpg">
+
     <style>
         :root {
             --primary-green: #2b3a2f;
@@ -293,7 +299,6 @@
 
             Notification.requestPermission().then(function (permission) {
                 if (permission === "granted") {
-                    // Exemple de notification de test une fois accepté
                     new Notification("Montfaucon (46)", {
                         body: "Les notifications sont activées ! Vous serez alerté des nouvelles festivités.",
                         icon: "./ton-image.jpg"
@@ -307,15 +312,13 @@
         // Enregistrement classique d'un Service Worker pour une PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                // Remplacer 'sw.js' par le vrai fichier Service Worker si disponible
                 navigator.serviceWorker.register('./sw.js').then(function(registration) {
-                    console.log('ServiceWorker enregistré avec succès.', registration.scope);
-                }, function(err) {
+                    console.log('ServiceWorker enregistré avec succès.');
+                }).catch(function(err) {
                     console.log('Erreur lors de l\'enregistrement du ServiceWorker :', err);
                 });
             });
         }
     </script>
 </body>
-    </html>
-    
+</html>
