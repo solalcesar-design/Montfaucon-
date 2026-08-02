@@ -53,7 +53,7 @@
             font-size: 0.9rem;
         }
 
-        .btn-admin-login {
+        .btn-notif {
             background-color: var(--stone-dark);
             color: var(--accent-gold);
             border: none;
@@ -61,6 +61,11 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-notif:hover {
+            background-color: #403225;
         }
 
         /* --- HERO SECTION --- */
@@ -196,169 +201,20 @@
             gap: 20px;
         }
 
-        .visitor-card {
+        /* --- PLANNING DES FESTIVITÉS --- */
+        .planning-container {
             background: #ffffff;
             border: 1px solid #eef2f5;
             border-radius: 8px;
-            overflow: hidden;
-            position: relative;
+            padding: 30px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .visitor-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .card-logo-img {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 45px;
-            height: 45px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            z-index: 2;
-            background-color: white;
-        }
-
-        .card-photo-wrapper {
-            width: 100%;
-            height: 160px;
-            overflow: hidden;
-            background-color: #f0f0f0;
-        }
-
-        .card-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .card-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--darker-green);
-            margin-bottom: 6px;
-        }
-
-        .card-details {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.4;
-            margin-bottom: 15px;
-        }
-
-        .btn-card-primary {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
             text-align: center;
         }
 
-        /* --- INTERFACE ADMIN OVERLAY --- */
-        #admin-panel {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-green);
-            z-index: 9999;
-            overflow-y: auto;
-            color: white;
-        }
-
-        .admin-header {
-            background-color: var(--darker-green);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--accent-gold);
-        }
-
-        .btn-close-admin {
-            background: var(--accent-gold);
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .admin-content {
-            padding: 30px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .admin-form-box {
-            background-color: #e3dec9;
-            color: var(--stone-text);
-            padding: 30px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            border: 3px solid var(--stone-dark);
-        }
-
-        .admin-form-box h3 {
-            margin-top: 0;
-            border-bottom: 2px solid var(--stone-dark);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .admin-form-box label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-        .admin-form-box input, .admin-form-box select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .btn-submit-admin {
-            margin-top: 25px;
-            width: 100%;
-            background-color: var(--primary-green);
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-submit-admin:hover {
-            background-color: var(--darker-green);
+        .planning-container p {
+            color: #555;
+            font-style: italic;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -370,7 +226,8 @@
         <nav>
             <ul>
                 <li><a href="#vie-locale">Vie Locale</a></li>
-                <li><button class="btn-admin-login" onclick="openAdmin()">Accès Admin</button></li>
+                <li><a href="#planning">Festivités</a></li>
+                <li><button class="btn-notif" onclick="activerNotifications()">Activer les Notifications</button></li>
             </ul>
         </nav>
     </header>
@@ -392,88 +249,73 @@
         </div>
     </section>
 
-    <!-- SECTION CÔTÉ VISITEUR (RANGÉ PAR CLASSE, SANS EXEMPLES) -->
+    <!-- SECTION COMMERCES (SANS EMOJIS) -->
     <section class="main-section" id="vie-locale">
         <h2 class="section-title">Vie Locale, Commerces & Associations</h2>
 
-        <!-- CATÉGORIE : HÔTELLERIE -->
         <div class="category-block">
-            <h3 class="column-title">🏨 Hôtellerie & Hébergements</h3>
+            <h3 class="column-title">Hôtellerie & Hébergements</h3>
             <div class="visitor-grid"></div>
         </div>
 
-        <!-- CATÉGORIE : RESTAURANTS -->
         <div class="category-block">
-            <h3 class="column-title">🍽️ Restaurants & Cafés</h3>
+            <h3 class="column-title">Restaurants & Cafés</h3>
             <div class="visitor-grid"></div>
         </div>
 
-        <!-- CATÉGORIE : ÉPICERIES -->
         <div class="category-block">
-            <h3 class="column-title">🧺 Épiceries & Commerces</h3>
+            <h3 class="column-title">Épiceries & Commerces</h3>
             <div class="visitor-grid"></div>
         </div>
 
-        <!-- CATÉGORIE : ASSOCIATIONS -->
         <div class="category-block">
-            <h3 class="column-title">👥 Associations</h3>
+            <h3 class="column-title">Associations</h3>
             <div class="visitor-grid"></div>
         </div>
     </section>
 
-    <!-- PANNEAU D'ADMINISTRATION (CACHÉ PAR DÉFAUT) -->
-    <div id="admin-panel" style="display: none;">
-        <div class="admin-header">
-            <h2>PANNEAU D'ADMINISTRATION COMMERCIAL (NON-SÉCURISÉ)</h2>
-            <button onclick="closeAdmin()" class="btn-close-admin">Fermer</button>
+    <!-- SECTION PLANNING DES FESTIVITÉS (EN BAS) -->
+    <section class="main-section" id="planning">
+        <h2 class="section-title">Planning des Festivités</h2>
+        <div class="planning-container">
+            <p>Le programme des événements à venir sera affiché ici.</p>
         </div>
+    </section>
 
-        <div class="admin-content">
-            <div class="admin-form-box">
-                <h3>+ RAJOUTER UN COMMERCE OU ASSOCIATION</h3>
-                <form onsubmit="event.preventDefault(); alert('Ajout réussi ! (Connexion BDD prévue plus tard)');">
-                    <label>Nom du commerce / asso :</label>
-                    <input type="text" placeholder="Ex: Le Lion d'Or" required>
-
-                    <label>Catégorie (Classe) :</label>
-                    <select required>
-                        <option value="hotellerie">Hôtellerie / Hôtel</option>
-                        <option value="restaurant">Restaurant / Café</option>
-                        <option value="epicerie">Épicerie / Boutique</option>
-                        <option value="association">Association</option>
-                    </select>
-
-                    <label>Lien de la page HTML :</label>
-                    <input type="text" placeholder="Ex: lion-dor.html" required>
-
-                    <label>Lien de l'image du Logo :</label>
-                    <input type="text" placeholder="Ex: ./img/logo-lion.png" required>
-
-                    <label>Lien de la photo d'aperçu (Façade) :</label>
-                    <input type="text" placeholder="Ex: ./img/facade-lion.jpg" required>
-
-                    <button type="submit" class="btn-submit-admin">ENREGISTRER</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT JS ADMIN -->
+    <!-- SCRIPT JS POUR PWA ET NOTIFICATIONS -->
     <script>
-        function openAdmin() {
-            let identifiant = prompt("Identifiant :");
-            let motDePasse = prompt("Mot de passe :");
-
-            if (identifiant === "admin" && motDePasse === "admin123") {
-                document.getElementById('admin-panel').style.display = 'block';
-            } else {
-                alert("Identifiant ou mot de passe incorrect.");
+        // Fonction pour demander l'autorisation d'envoyer des notifications (PWA)
+        function activerNotifications() {
+            if (!("Notification" in window)) {
+                alert("Ce navigateur ne prend pas en charge les notifications de bureau.");
+                return;
             }
+
+            Notification.requestPermission().then(function (permission) {
+                if (permission === "granted") {
+                    // Exemple de notification de test une fois accepté
+                    new Notification("Montfaucon (46)", {
+                        body: "Les notifications sont activées ! Vous serez alerté des nouvelles festivités.",
+                        icon: "./ton-image.jpg"
+                    });
+                } else {
+                    alert("Les notifications ont été refusées.");
+                }
+            });
         }
 
-        function closeAdmin() {
-            document.getElementById('admin-panel').style.display = 'none';
+        // Enregistrement classique d'un Service Worker pour une PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Remplacer 'sw.js' par le vrai fichier Service Worker si disponible
+                navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                    console.log('ServiceWorker enregistré avec succès.', registration.scope);
+                }, function(err) {
+                    console.log('Erreur lors de l\'enregistrement du ServiceWorker :', err);
+                });
+            });
         }
     </script>
 </body>
-</html>
+    </html>
+    
